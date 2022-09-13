@@ -9,28 +9,48 @@ import java.sql.*;
 public class DeleteUpdateStudentData
 {
 
-    public Connection getConnection(){
-        Connection connection=null;
+    public Connection getConnection() throws ClassNotFoundException, SQLException{
 
-        return connection;
+            Connection connection = null;
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = "jdbc:mysql://localhost:3306/school";
+            String user = "root";
+            String pass = "admin";
+            connection = DriverManager.getConnection(url, user, pass);
+            return connection;
+
+
 
     }
 
-    public void deleteStudentData(){
+    public void deleteStudentData() throws SQLException, ClassNotFoundException {
       // call getConnection() method
-       
+       Statement st = getConnection().createStatement();
         //execute delete query
+        String sql = "Delete from student where rollno = 14";
+        st.executeUpdate(sql);
+        System.out.println("Successfully deleted");
     }
 
-    public void updateStudentData(){
+    public void updateStudentData() throws SQLException,ClassNotFoundException{
         // call getConnection() method
-
+        Statement st = getConnection().createStatement();
         //execute update query
+        String sql = "Update student set age = 30 where totalMarks = 678 and rollno = 15";
+        st.executeUpdate(sql);
+        System.out.println("Successfully updated ");
     }
 
     public static void main(String[] args) {
         DeleteUpdateStudentData salesDataDemo = new DeleteUpdateStudentData();
-        salesDataDemo.deleteStudentData();
-        salesDataDemo.updateStudentData();
+        try {
+            salesDataDemo.deleteStudentData();
+            salesDataDemo.updateStudentData();
+        } catch (SQLException e) {
+           e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 }
