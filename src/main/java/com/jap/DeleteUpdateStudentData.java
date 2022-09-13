@@ -38,6 +38,7 @@ public class DeleteUpdateStudentData
     public static void main(String[] args) {
         DeleteUpdateStudentData salesDataDemo = new DeleteUpdateStudentData();
         try {
+
             salesDataDemo.deleteStudentData();
             salesDataDemo.updateStudentData();
         } catch (SQLException e) {
