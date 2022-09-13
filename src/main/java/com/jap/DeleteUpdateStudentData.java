@@ -11,7 +11,6 @@ public class DeleteUpdateStudentData
 
     public Connection getConnection() throws ClassNotFoundException, SQLException{
 
-
             Connection connection = null;
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/school";
