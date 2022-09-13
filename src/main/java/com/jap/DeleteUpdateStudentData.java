@@ -30,6 +30,7 @@ public class DeleteUpdateStudentData
     }
     public void updateStudentData() throws SQLException,ClassNotFoundException{
         // call getConnection() method
+
         Statement st = getConnection().createStatement();
         //execute update query
         String sql = "Update student set age = 50 where totalMarks = 190 and rollno = 19";
