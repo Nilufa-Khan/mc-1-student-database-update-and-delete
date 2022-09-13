@@ -23,14 +23,12 @@ public class DeleteUpdateStudentData
       // call getConnection() method
        Statement st = getConnection().createStatement();
         //execute delete query
-
         String sql = "Delete from student where rollno = 29";
         st.executeUpdate(sql);
         System.out.println("Successfully deleted");
     }
     public void updateStudentData() throws SQLException,ClassNotFoundException{
         // call getConnection() method
-
         Statement st = getConnection().createStatement();
         //execute update query
         String sql = "Update student set age = 50 where totalMarks = 190 and rollno = 19";
