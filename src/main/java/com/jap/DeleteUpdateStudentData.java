@@ -23,6 +23,7 @@ public class DeleteUpdateStudentData
       // call getConnection() method
        Statement st = getConnection().createStatement();
         //execute delete query
+
         String sql = "Delete from student where rollno = 29";
         st.executeUpdate(sql);
         System.out.println("Successfully deleted");
